@@ -284,3 +284,8 @@ class bst {
 
 
 **OUTPUT:**
+
+![Screenshot from 2024-11-25 13-39-58](https://github.com/user-attachments/assets/3ac813a0-e2b8-4d18-9822-d30780a2a1f6)
+
+
+
