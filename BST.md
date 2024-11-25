@@ -1,3 +1,113 @@
+**BST** is for oraganizing and storing data in sorted manner 
+
+ A Binary Search Tree is,
+	-->  Every Node's *Left Child is lesser than  the node*
+	--> Whereas the *Right child is greater than it*
+
+
+> [!TIP]
+> **BST** never contains duplicates elements
+
+### Why we have to use BST Tree over a BST Array
+
+#### --> Downside of using a sorted array
+   - If we need to _add/delete_ any elements in the array to maintain the *_Sorted Property_ it Takes a **O(n) Time**.
+#### --> In case of BST:
+-  The Same _add/delete_ operation takes a time of _O(log n)_* which is efficient compared to an Array
+
+### **1. Implementation of BST**  
+
+1. **Node creation**
+```java
+class Node {
+    int value;
+    Node left, right;
+
+    Node(int value) {
+        this.value = value;
+        left = right = null; // Initially, no child nodes
+    }
+}
+
+public class bst{
+    public static void main(String[] args) {
+        Node root = new Node(50);
+
+        root.left = new Node(30);
+        root.right = new Node(70);
+
+        root.left.left = new Node(45);
+        root.right.right = new Node(90);
+
+        System.out.println("Root value: " + root.value);
+        System.out.println("Left value: " + root.left.value);
+        System.out.println("Right value: " + root.right.value);
+        System.out.println(" root left value: " + root.left.left.value);
+        System.out.println("root Right value: " + root.right.right.value);
+    }
+}
+
+```
+
+
+2. **Insertion in BST**:
+```java
+class Node {
+    int value;
+    Node left, right;
+
+    Node(int value) {
+        this.value = value;
+        left = right = null; 
+    }
+}
+
+class bst{
+    static Node insert(Node root, int value) {
+        if (root == null) {
+            return new Node(value); 
+        }
+
+        if (value < root.value) {
+            root.left = insert(root.left, value);
+        }
+        else if (value > root.value) {
+            root.right = insert(root.right, value);
+        }
+        return root;
+    }
+
+    static void inorder(Node root) {
+        if (root != null) {
+            inorder(root.left); 
+            System.out.print(root.value + " "); 
+            inorder(root.right); 
+        }
+    }
+
+    public static void main(String[] args) {
+        Node root = null;
+
+        root = insert(root, 50);
+        root = insert(root, 30);
+        root = insert(root, 20);
+        root = insert(root, 40);
+        root = insert(root, 23);
+        root = insert(root, 70);
+        root = insert(root, 60);
+        root = insert(root, 80);
+
+        System.out.print("Inorder Traversal of the BST: ");
+        inorder(root); // Output: 20 23 30 40 50 60 70 80
+        System.out.print("Inorder Traversal of the BST: "+ root.value);
+    }
+}
+
+```
+
+
+2. Validate a BST , TOP , LEFT , RIGHT, BOTTOM view
+```java
 import java.util.*;
 
 class Node {
@@ -170,4 +280,7 @@ class bst {
         System.out.println("Is this a valid BST? " + (isValid ? "Yes" : "No"));
     }
 }
+```
 
+
+**OUTPUT:**
